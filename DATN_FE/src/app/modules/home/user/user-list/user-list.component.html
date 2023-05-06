@@ -1,0 +1,37 @@
+<div class="mb-5">
+  <div class="row col-md-12">
+    <div class="col-md-4">
+      <p-autoComplete [size]="44" [(ngModel)]="selectedUserName" placeholder="Tên người đăng tuyển" field="userName" ></p-autoComplete>
+    </div>
+
+    <div class="col-md-4">
+      <p-autoComplete [size]="44" [(ngModel)]="selectedEmail" placeholder="Email" field="email"></p-autoComplete>
+    </div>
+
+    <div class="col-md-4">
+      <p-autoComplete [size]="44" [(ngModel)]="selectedPhoneNumber" placeholder="Số điện thoại" field="phoneNumber"></p-autoComplete>
+    </div>
+  </div>
+
+  <div class="row container-fluid col-md-12 mt-3">
+    <div class="col-md-9">
+      <div class="col-md-4 float-right">
+        <p-button [style]="{'minWidth':'100%'}" label="Tìm Kiếm" icon="pi pi-search" iconPos="right" [loading]="" (onClick)="onSearch()"></p-button>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <p-button label="Thêm Người Đăng Tuyển" icon="pi pi-user-plus" iconPos="right" [loading]="" (onClick)="onAddJe()"></p-button>
+    </div>
+  </div>
+</div>
+
+<div class="row float-left ml-2 w-100">
+  <ngx-user-title *ngFor="let user of users" [user]="user"></ngx-user-title>
+</div>
+
+<p-paginator [rows]="5" [totalRecords]="totalRecords" [rowsPerPageOptions]="[5,10,15]" (onPageChange)="paginate($event)"></p-paginator>
+
+
+
+
